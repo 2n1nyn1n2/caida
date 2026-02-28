@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://pxsvn3n51gmx"]
+
+[ext_resource type="Script" uid="uid://37lt1fqmlpux" path="res://gd/card.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b3dj4bv5pobp4" path="res://icon.svg" id="2_sprite"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(119.5, 166.5)
+
+[node name="Card" type="Control" unique_id=467836779]
+custom_minimum_size = Vector2(240, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_script")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=937847290]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=580648924]
+position = Vector2(120, 180)
+scale = Vector2(2, 2.8)
+texture = ExtResource("2_sprite")
+
+[node name="Label" type="Label" parent="Area2D" unique_id=1848369072]
+offset_top = 15.0
+offset_right = 240.0
+offset_bottom = 340.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 64
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=399690794]
+position = Vector2(119.5, 177.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_1")

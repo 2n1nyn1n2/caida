@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://c8y7x3k6j4m2"]
+
+[ext_resource type="Script" uid="uid://d2vbb3wgia7cs" path="res://gd/game.gd" id="1_script"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_407eg"]
+
+[sub_resource type="Gradient" id="Gradient_white_radial"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_juix7"]
+gradient = SubResource("Gradient_white_radial")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+
+[node name="Game" type="Control" unique_id=1453774558]
+custom_minimum_size = Vector2(2048, 2048)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1041625672]
+material = SubResource("CanvasItemMaterial_407eg")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12549, 0.290196, 0.188235, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=549590326]
+
+[node name="CenterLight" type="PointLight2D" parent="." unique_id=1093422314]
+position = Vector2(1024, 1024)
+scale = Vector2(20, 20)
+energy = 2.0
+texture = SubResource("GradientTexture2D_juix7")
+
+[node name="MouseLight" type="PointLight2D" parent="." unique_id=223368688]
+unique_name_in_owner = true
+color = Color(1, 0.8, 0.4, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_juix7")
+
+[node name="MainLayout" type="VBoxContainer" parent="." unique_id=1786411262]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="OpponentHand" type="HBoxContainer" parent="MainLayout" unique_id=481895628]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+alignment = 1
+
+[node name="Table" type="CenterContainer" parent="MainLayout" unique_id=883772013]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="LastPlayedCardSlot" type="Control" parent="MainLayout/Table" unique_id=1456666212]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PlayerHand" type="HBoxContainer" parent="MainLayout" unique_id=1187407953]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HUD" type="Control" parent="." unique_id=1144650493]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=1016011320]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 32
+text = "Player: 0 | CPU: 0"
+
+[node name="DeckCountLabel" type="Label" parent="HUD" unique_id=812690650]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 20.0
+offset_top = 71.0
+offset_right = 254.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 32
+text = "Cards in Deck:?"
+
+[node name="StatusMessage" type="Label" parent="HUD" unique_id=829254339]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -25.0
+offset_right = 150.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DealButton" type="Button" parent="HUD" unique_id=1086630601]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2028.0
+offset_top = -1915.0
+offset_right = -1638.0
+offset_bottom = -1819.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "DEAL CARDS"

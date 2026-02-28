@@ -1,0 +1,15 @@
+# Godot 4+ specific ignores
+.godot/
+addons/
+reports/
+
+#mac
+.DS_Store
+
+#node
+node_modules/
+.env
+
+#temp
+unsorted-png/
+sorted-png/

@@ -1,0 +1,16 @@
+{
+  "name": "caida",
+  "version": "1.0.0",
+  "type": "module",
+  "devDependencies": {
+    "dotenv": "^17.2.3",
+    "exiftool-vendored": "^34.1.0",
+    "glob": "^13.0.0",
+    "prettier": "^3.7.4",
+    "prettier-plugin-sort-json": "^4.1.1"
+  },
+  "scripts": {
+    "format-json": "prettier --write \"**/*.{js,json}\"",
+    "format-json-check": "prettier --check \"**/*.{js,json}\""
+  }
+}

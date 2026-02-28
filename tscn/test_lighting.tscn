@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dp6y6n8x6j8q"]
+
+[ext_resource type="Script" uid="uid://b8lvtgf7ndw05" path="res://gd/test_lightning.gd" id="1_l6lk5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_light"]
+
+[sub_resource type="Gradient" id="Gradient_white_radial"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bulb"]
+gradient = SubResource("Gradient_white_radial")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+
+[node name="LightingTest" type="Control" unique_id=1261077354]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6lk5")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1093457506]
+material = SubResource("CanvasItemMaterial_light")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12549, 0.290196, 0.188235, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2087831764]
+color = Color(0.0784314, 0.0784314, 0.117647, 1)
+
+[node name="CenterLight" type="PointLight2D" parent="." unique_id=429683218]
+position = Vector2(1024, 1024)
+scale = Vector2(20, 20)
+energy = 2.0
+texture = SubResource("GradientTexture2D_bulb")
+
+[node name="MouseLight" type="PointLight2D" parent="." unique_id=1206447689]
+unique_name_in_owner = true
+color = Color(1, 0.8, 0.4, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_bulb")
